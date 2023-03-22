@@ -1,44 +1,24 @@
 #include "main.h"
+
 /**
- * print_times_table - print times table of size n
- *
- * @n: input times table size
+ * print_times_table - prints the n times table starting with 0
+ * @n: the size of the times table to print
  */
 void print_times_table(int n)
 {
-	int a, b, ab, ab1, ab2, ab3;
+    if (n < 0 || n > 15)
+        return;
 
-	if (!(n > 15 || n < 0))
-	{
-		for (a = 0; a <= n; a++)
-		{
-			for (b = 0; b <= n; b++)
-			{
-				ab = a * b;
-				ab1 = ab / 100;
-				ab2 = (ab / 10) % 10;
-				ab3 = ab % 10;
-				if (b == 0)
-					_putchar('0');
-				else
-				{
-					if (ab1 == 0)
-						_putchar(' ');
-					else
-						_putchar(ab1 + '0');
-					if (ab1 == 0 && ab2 == 0)
-						_putchar(' ');
-					else
-						_putchar(ab2 + '0');
-					_putchar(ab3 + '0');
-				}
-				if (b < n)
-				{
-					_putchar(',');
-					_putchar(' ');
-				}
-			}
-			_putchar('\n');
-		}
-	}
+    for (int i = 0; i <= n; i++)
+    {
+        for (int j = 0; j <= n; j++)
+        {
+            int result = i * j;
+            if (j == 0)
+                printf("%d", result);
+            else
+                printf(",%4d", result);
+        }
+        printf("\n");
+    }
 }
