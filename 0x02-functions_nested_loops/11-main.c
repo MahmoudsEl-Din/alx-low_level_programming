@@ -1,4 +1,4 @@
-#include "0x02-functions_nested_loops.h"
+#include "main.h"
 
 /**
  * main - check the code for 0x02-functions_nested_loops 

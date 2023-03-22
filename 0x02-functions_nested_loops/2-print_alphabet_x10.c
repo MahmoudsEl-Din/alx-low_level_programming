@@ -1,4 +1,4 @@
-#include "0x02-functions_nested_loops.h"
+#include "main.h"
 /**
  * print_alphabet_x10 - Entry point to the loops
  *

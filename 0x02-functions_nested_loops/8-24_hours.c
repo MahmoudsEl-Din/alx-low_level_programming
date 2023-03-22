@@ -1,4 +1,4 @@
-#include "0x02-functions_nested_loops.h"
+#include "main.h"
 /**
  * jack_bauer - Entry point to receive integers.
  *

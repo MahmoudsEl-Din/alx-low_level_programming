@@ -1,4 +1,4 @@
-#include "0x02-functions_nested_loops.h"
+#include "main.h"
 /**
  * print_last_digit - Entry point to receive integers.
  * @n: The integer
