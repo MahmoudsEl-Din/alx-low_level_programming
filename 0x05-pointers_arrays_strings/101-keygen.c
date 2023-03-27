@@ -3,23 +3,35 @@
 #include <time.h>
 
 /**
- * main - entry point for keygen
+ * main - entry point of the program
  *
- * Return: 0
-*/
-
+ * Return: always 0
+ */
 int main(void)
 {
-	int c, sum, last;
+    int i, sum, diff, c;
+    char password[100];
 
-	srand(time(NULL));
-	for (sum = 0, last = 2772; last > 122; sum ++)
-	{
-		c = (rand() % 128) + 1;
-		printf("%c", c);
-		last -= c;
-	}
-	printf("%c", last);
+    srand(time(NULL)); /* seed the random number generator */
 
-	return (0);
+    /* generate a random password */
+    for (i = 0, sum = 0; sum < (2772 - 122); i++)
+    {
+        c = rand() % 62;
+        if (c < 10)
+            password[i] = '0' + c;
+        else if (c < 36)
+            password[i] = 'a' + c - 10;
+        else
+            password[i] = 'A' + c - 36;
+        sum += password[i];
+    }
+    diff = sum - 2772 + 122;
+    password[i++] = diff / 2;
+    password[i] = '\0';
+
+    /* print the generated password */
+    printf("%s", password);
+
+    return (0);
 }
