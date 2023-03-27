@@ -2,36 +2,22 @@
 #include <stdlib.h>
 #include <time.h>
 
-/**
- * main - entry point of the program
- *
- * Return: always 0
- */
-int main(void)
-{
-    int i, sum, diff, c;
-    char password[100];
+int main() {
+    const char* valid_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+    const int password_length = 10;
+    char password[password_length + 1];
+    int i;
 
-    srand(time(NULL)); /* seed the random number generator */
+    srand(time(NULL));
 
-    /* generate a random password */
-    for (i = 0, sum = 0; sum < (2772 - 122); i++)
-    {
-        c = rand() % 62;
-        if (c < 10)
-            password[i] = '0' + c;
-        else if (c < 36)
-            password[i] = 'a' + c - 10;
-        else
-            password[i] = 'A' + c - 36;
-        sum += password[i];
+    for (i = 0; i < password_length; i++) {
+        int index = rand() % strlen(valid_chars);
+        password[i] = valid_chars[index];
     }
-    diff = sum - 2772 + 122;
-    password[i++] = diff / 2;
-    password[i] = '\0';
 
-    /* print the generated password */
-    printf("%s", password);
+    password[password_length] = '\0';
 
-    return (0);
+    printf("%s\n", password);
+
+    return 0;
 }
