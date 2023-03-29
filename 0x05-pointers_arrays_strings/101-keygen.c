@@ -1,23 +1,33 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-int main() {
-    const char* valid_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
-    const int password_length = 10;
-    char password[password_length + 1];
+#define PASSWORD_LENGTH 13
+
+int main(void)
+{
+    char password[PASSWORD_LENGTH + 1]; // Add 1 for null terminator
     int i;
 
+    // Seed the random number generator with the current time
     srand(time(NULL));
 
-    for (i = 0; i < password_length; i++) {
-        int index = rand() % strlen(valid_chars);
-        password[i] = valid_chars[index];
+    // Generate a random password
+    for (i = 0; i < PASSWORD_LENGTH; i++) {
+        int r = rand() % 62;
+        if (r < 26) {
+            password[i] = 'a' + r;
+        } else if (r < 52) {
+            password[i] = 'A' + r - 26;
+        } else {
+            password[i] = '0' + r - 52;
+        }
     }
+    password[PASSWORD_LENGTH] = '\0';
 
-    password[password_length] = '\0';
-
-    printf("%s\n", password);
+    // Print the password to stdout
+    printf("%s", password);
 
     return 0;
 }
