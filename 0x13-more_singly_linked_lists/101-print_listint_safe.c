@@ -8,14 +8,7 @@
  *
  * Return: The number of nodes in the linked list.
  */
-#include "lists.h"
 
-/**
- * free_listp - frees a linked list
- * @head: head of a list.
- *
- * Return: no return.
- */
 void free_listp(listp_t **head)
 {
 	listp_t *temp;
