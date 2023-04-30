@@ -1,12 +1,11 @@
 #include "lists.h"
 
 /**
- * print_listint_safe - Prints a linked list of integers, even if it has a loop.
- * @head: Pointer to the head of the linked list.
+ * free_listp - frees a linked list
+ * @head: head of a list.
  *
- * Return: The number of nodes in the linked list.
+ * Return: no return.
  */
-
 void free_listp(listp_t **head)
 {
 	listp_t *temp;
